@@ -1,0 +1,37 @@
+[
+    { "client_id": "1",
+      "number_of_open_accounts": 5,
+      "total_credit_limit": 15000,
+      "total_balance": 4532.75,
+      "number_of_accounts_in_arrears": 1
+    },
+    {
+      "client_id": "2",
+      "number_of_open_accounts": 3,
+      "total_credit_limit": 9000,
+      "total_balance": 1200.50,
+      "number_of_accounts_in_arrears": 0
+    },
+    {
+      "client_id": "3",
+      "number_of_open_accounts": 7,
+      "total_credit_limit": 30000,
+      "total_balance": 15789.95,
+      "number_of_accounts_in_arrears": 2
+    },
+    {
+      "client_id": "4",
+      "number_of_open_accounts": 2,
+      "total_credit_limit": 5000,
+      "total_balance": 500.00,
+      "number_of_accounts_in_arrears": 0
+    },
+    {
+      "client_id": "5",
+      "number_of_open_accounts": 6,
+      "total_credit_limit": 20000,
+      "total_balance": 10000.50,
+      "number_of_accounts_in_arrears": 1
+    }
+  ]
+  
