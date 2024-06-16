@@ -6,7 +6,7 @@ There three ways of test the inferecne API:
     3. Run the `inference_api.py` file. This will launch a Flask API.
     4. You can test the API by sending requests to `http://127.0.0.1:5000` with an example payload.
 
-2. If you prefer to use Docker, you can download the Docker files from a container registry. AWS ECR iamge URI: `891377000396.dkr.ecr.eu-west-2.amazonaws.com/flask-fraud_detecotr-xgb:latest`.
+2. If you prefer to use Docker, you can download the Docker files from a container registry. AWS ECR image URI: `891377000396.dkr.ecr.eu-west-2.amazonaws.com/flask-fraud_detecotr-xgb:latest`.
     1. Once you have the Docker image, run the container. Make sure to expose port 8000.
     2. You can test the API by sending requests to `http://127.0.0.1:8000` with an example payload. 
 3. You can use the ready APIs I built with AWS Application Load Balancer and ECS. 
@@ -89,5 +89,16 @@ An example response
 ```
 
 ## Ohter files
+- `inference.py` ## inference.py
+
+The `inference.py` file is a key part of our application. It contains the `InferencePipeline` and `Model` classes, which are used to load a trained machine learning model and make predictions with it.
+
+The `Model` class is an abstract base class that defines the interface for a machine learning model. It includes methods for loading a model from a file and making predictions with the model.
+
+The `InferencePipeline` class uses an instance of the `Model` class to make predictions. It takes in raw data, transforms it into the format expected by the model, passes it to the model for prediction, and then transforms the model's output into a more usable format.
+
+In our application, we use a subclass of `Model` to load an XGBoost model and make predictions with it. This subclass, `XGBoostModel`, is defined in the same file. It overrides the `load_model` and `infer_model` methods of the `Model` class to load an XGBoost model from a file and make predictions with it, respectively.
+
+The `inference.py` file is used by our Flask application to make predictions in response to HTTP requests. When the Flask application receives a POST request at the `/predict` endpoint, it uses the `InferencePipeline` and `XGBoostModel` classes to make a prediction and returns the prediction in the response.
 - `unit_test.py` is to test if the model load and run correctly. You do not need it to run the API. 
 - `inference_sagemaker.py` is a Python script to register and deloy a model to AWS SageMaker. The script is under development. It can not use it straight. It show case the high level process of it.

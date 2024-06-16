@@ -5,12 +5,12 @@ import xgboost as xgb
 
 
 
-class dataTransformor:
+class dataTransformer:
     @abstractmethod
     def transform(self, data, model_type):
         pass
 
-class XGboostDataTransformor(dataTransformor):
+class XGboostDataTransformer(dataTransformer):
     def transform(self, data, model_type):
         if model_type == 'xgboost':
             client_ids = []

@@ -1,5 +1,5 @@
 from flask import Flask, request
-from inference import InferencePipeline, XGboostModel, XGboostDataTransformor
+from inference import InferencePipeline, XGboostModel, XGboostDataTransformer
 
 
 app = Flask(__name__)
@@ -11,7 +11,7 @@ def predict():
         return {"error": "Input data should be a list of dictionaries."}, 400
     
     
-    features, client_ids = XGboostDataTransformor().transform(data, 'xgboost')
+    features, client_ids = XGboostDataTransformer().transform(data, 'xgboost')
     model_path = "./models/xgboost.json"
     # model_path = 'fraudsters-detect-models/xgboost.json'
     # it should fetche the log db and decide the model path in the future
